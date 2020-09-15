@@ -1,0 +1,22 @@
+@import "util/main";
+@import "util/flex";
+#event-header {
+    font-size: 1.4rem;
+}
+
+#event-description {
+    @include body1;
+}
+
+#schedule-times,
+#schedule-content {
+    @include body2;
+}
+
+.info-question {
+    margin-bottom: $yThird;
+}
+
+.info-answer {
+    @include body2;
+}

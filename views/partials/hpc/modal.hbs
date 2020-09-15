@@ -1,0 +1,35 @@
+<div id="modal-container" class="col mid">
+    <div id="modal" class="col">
+        <div class="row">
+            <div></div>
+            <i data-feather="x" id="modal-closer"></i>
+        </div>
+        <div class="row mid top" id="modal-header">
+            <div>{{name}}</div>
+        </div>
+        <div class="row mid top" id="modal-description">
+            <div>
+                {{#each bodyText}}
+                    {{this}}
+                    <br />
+                {{/each}}
+            </div>
+        </div>
+        <div class="ySpacer smup"></div>
+        <div class="row mid" id="modal-buttons">
+
+            {{#each buttons}}
+                <div class="col semimajor">
+                    <a href="{{link}}" target="{{target}}">
+                    <button class="{{class}}">{{text}}</button>
+                    </a>
+                </div>
+                {{#unless last}}
+                    <div class="xSpacer smup"></div>
+                {{/unless}}
+            {{/each}}
+
+        </div>
+    </div>
+</div>
+<div id="modal-overlay"></div>

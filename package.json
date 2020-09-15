@@ -1,0 +1,47 @@
+{
+    "name": "hpc-website",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "tsc",
+        "build-watch": "tsc -w",
+        "debug": "nodemon build/index.js",
+        "start": "node build/index.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/g10ria/HPC-website.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@types/koa": "^2.11.3",
+        "@types/luxon": "^1.24.0",
+        "@types/node": "^13.13.2",
+        "fs": "0.0.1-security",
+        "handlebars": "^4.7.6",
+        "koa": "^2.11.0",
+        "koa-bodyparser": "^4.3.0",
+        "koa-json": "^2.0.2",
+        "koa-logger": "^3.2.1",
+        "koa-router": "^9.4.0",
+        "koa-session": "^6.0.0",
+        "koa-static": "^5.0.0",
+        "koa-views": "^6.2.1",
+        "luxon": "^1.24.1",
+        "nodemailer": "^6.4.10",
+        "path": "^0.12.7",
+        "serve": "^11.3.0",
+        "typescript": "^3.9.5",
+        "websocket": "^1.0.31"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.3"
+    },
+    "bugs": {
+        "url": "https://github.com/g10ria/HPC-website/issues"
+    },
+    "homepage": "https://github.com/g10ria/HPC-website#readme"
+}

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{> head}}
+    <link href="{{path}}/hpc/css/contest.css" rel="stylesheet">
+</head>
+
+<body>
+    {{!-- {{#if modal}}
+    {{> modal this.modalData}}
+    {{/if}} --}}
+
+    {{> nav}}
+
+    <div class="row">
+        <div id="content" class="col">
+
+            <div class="row">
+                <div class="col major five start">
+                    <div id="event-header">{{name}}</div>
+                    <div class="ySpacer"></div>
+                    <div id="event-description">
+                        {{description}}
+                    </div>
+                    <div class="ySpacer"></div>
+                    <div>
+                        <a target="_blank" href="{{registerLink}}"><button>Register now</button></a>
+                    </div>
+                </div>
+                <div class="xSpacer lgonly"></div>
+                <div class="col major four">
+                    <img src="{{image}}">
+                </div>
+            </div>
+
+            <div class="ySpacer"></div>
+            <div class="ySpacer lgonly"></div>
+            <div class="ySpacer lgonly"></div>
+            <div class="ySpacer lgonly"></div>
+
+            <div class="row">
+
+                <div class="col major five start">
+                    <div>
+                        <div class="underline info-question">Who can participate?</div>
+                        <div class="info-answer">{{who}}</div>
+                    </div>
+                    <div class="ySpacer"></div>
+                    <div>
+                        <div class="underline info-question">Where is it?</div>
+                        <div class="info-answer">
+
+                            {{#each where}}
+                                <div>{{this}}</div>
+                            {{/each}}
+                        </div>
+                    </div>
+                    <div class="ySpacer"></div>
+                    <div>
+                        <div class="underline info-question">When is it?</div>
+                        <div class="info-answer">
+
+                            {{#each when}}
+                                <div>{{this}}</div>
+                            {{/each}}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col major five">
+                    <div class="underline">Schedule</div>
+                    <div class="ySpacer"></div>
+                    <div class="row start">
+                        <div id="schedule-times">
+                            {{#each scheduleTimes}}
+                            <div>{{this}}</div>
+                            {{/each}}
+                        </div>
+                        <div class="xSpacer"></div>
+                        <div id="schedule-content">
+                            {{#each scheduleContent}}
+                            <div>{{this}}</div>
+                            {{/each}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ySpacer"></div>
+
+            <div class="col">
+                <div class="section-header row mid">Special thanks to our sponsors</div>
+                <div class="ySpacer smup"></div>
+                <div class="ySpacer"></div>
+
+                {{#each sponsors}}
+
+                <div class="row mid">
+                    <div class="col four semimajor">
+                        <img src="{{this.[0]}}">
+                        <div class="ySpacer smonly"></div>
+                    </div>
+
+                    {{#if this.[1]}}
+                        <div class="xSpacer smup"></div>
+                        
+                        <div class="col four semimajor">
+                            <img src="{{this.[1]}}">
+                        </div>
+                    {{/if}}
+                    
+                </div>
+
+                <div class="ySpacer"></div>
+
+                {{/each}}
+                
+            </div>
+
+            <div class="ySpacer smup"></div>
+            <div class="ySpacer smup"></div>
+            <div class="ySpacer smup"></div>
+
+        </div>
+    </div>
+
+    {{> footer}}
+
+</body>
+
+</html>

@@ -1,0 +1,368 @@
+// BREAKPOINTS (PARTLY STOLEN FROM ORBYT :D) -----------------
+$onePixel: 1px;
+$lowerBreak: 600px;
+$upperBreak: 1024px;
+// viewport-based dimensions
+$xUnit: 8.33vw;
+$yUnit: 8.33vh;
+$yThird: 2.78vh;
+$xThird: 2.78vw;
+$yHalf: 4.16vh;
+$xHalf: 4.16vw;
+// misc
+$lowOpac: 0.75;
+// these are alwahys inclusive at the lower boundary and exclusive at the upper boundary
+@mixin breakpoint($class) {
+    @if $class==smonly {
+        @media (max-width: $lowerBreak) {
+            @content;
+        }
+    }
+    @else if $class==lgdown {
+        @media (max-width: $upperBreak) {
+            @content;
+        }
+    }
+    @else if $class==mdonly {
+        @media (min-width: $lowerBreak + $onePixel) and (max-width: $upperBreak) {
+            @content;
+        }
+    }
+    @else if $class==lgonly {
+        @media (min-width: $upperBreak + $onePixel) {
+            @content;
+        }
+    }
+    @else if $class==smup {
+        @media (min-width: $lowerBreak + $onePixel) {
+            @content;
+        }
+    }
+    @else {
+        @warn "Breakpoint mixin supports: smonly, mdonly, lgonly, smup, lgdown";
+    }
+}
+
+// conditional rendering
+.smonly {
+    @include breakpoint('smup') {
+        display: none
+    }
+}
+
+.smup {
+    @include breakpoint('smonly') {
+        display: none;
+    }
+}
+
+.lgonly {
+    @include breakpoint('lgdown') {
+        display: none;
+    }
+}
+
+@mixin lowOpacOnHover {
+    &:hover {
+        opacity: $lowOpac;
+    }
+}
+
+// COLORS
+$navy: #0c1821;
+$light-navy: #1b2a41;
+$lavender-white: #ccc9dc;
+$lavender-white-dark: #b1aec5;
+// grays
+$white: white;
+$light-gray: #F3F3F3;
+$lighter-gray: #FAFAFA;
+$gray: #E5E5E5;
+$dark-gray: #A5A5A5;
+$darker-gray: #7E7E7E;
+$black: black;
+$c-black: #585858;
+// type
+@mixin page-header {
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.section-header {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.section-subheader {
+    font-size: 1.05rem;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+@mixin body1 {
+    font-size: 0.9rem;
+    line-height: 1.9;
+}
+
+@mixin body2 {
+    font-size: 0.8rem;
+    line-height: 1.9;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    color: white;
+    background-color: $navy;
+    margin: auto;
+}
+
+#nav,
+#content {
+    width: 83.33vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ySpacer {
+    width: 1px;
+    height: $yHalf;
+}
+
+.xSpacer {
+    height: 1px;
+    width: $xThird;
+}
+
+.feather {
+    stroke: $white;
+    cursor: pointer;
+    @include lowOpacOnHover;
+}
+
+#nav {
+    justify-content: space-between;
+    margin-top: $yUnit;
+    min-height: calc(2 * #{$yUnit});
+    flex-wrap: nowrap;
+    #nav-left {
+        box-sizing: border-box;
+        margin-right: calc(2 * #{$xUnit});
+        #nav-header {
+            @include page-header;
+            a {
+                color: white;
+                text-decoration: none;
+            }
+        }
+        #nav-subheader {
+            @include body2;
+            color: $lavender-white;
+            margin-top: $yThird;
+            margin-bottom: $yThird;
+        }
+    }
+    #nav-right {
+        text-align: right;
+        #nav-opener {
+            cursor: pointer;
+        }
+    }
+}
+
+#nav-drawer {
+    z-index: 3;
+    position: fixed;
+    background-color: $light-navy;
+    height: 100vh;
+    top: 0;
+    transition: right .2s; // todo: nicer easing curve
+    a {
+        color: white;
+        text-decoration: none;
+    }
+    @include breakpoint('smonly') {
+        width: calc(10 * #{$xUnit});
+        right: calc(-10 * #{$xUnit});
+        #nav-drawer-content {
+            margin-top: $yUnit;
+            margin-left: calc(2 * #{$xUnit});
+        }
+    }
+    @include breakpoint('mdonly') {
+        width: calc(4 * #{$xUnit});
+        right: calc(-4 * #{$xUnit});
+        #nav-drawer-content {
+            margin-top: $yUnit;
+            margin-left: $xUnit;
+        }
+    }
+    @include breakpoint('lgonly') {
+        width: calc(3 * #{$xUnit});
+        right: calc(-3 * #{$xUnit});
+        #nav-drawer-content {
+            margin-top: $yUnit;
+            margin-left: $xHalf;
+        }
+    }
+    &.open {
+        right: 0;
+    }
+    #nav-closer {
+        cursor: pointer;
+    }
+    .nav-drawer-option {
+        display: block;
+        cursor: pointer;
+        margin-top: $yHalf;
+        margin-bottom: $yHalf;
+        font-size: 1.2rem;
+        font-weight: 600;
+        @include lowOpacOnHover;
+    }
+}
+
+#nav-overlay {
+    transition: opacity .2s;
+    pointer-events: none;
+    &.on {
+        opacity: 0.75;
+        pointer-events: all !important;
+    }
+    z-index: 2;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    background-color: black;
+}
+
+#footer {
+    margin-top: $yUnit;
+    background-color: $light-navy;
+    padding: $yUnit $xHalf;
+}
+
+img {
+    width: 100%;
+}
+
+button {
+    font-size: 1rem;
+    font-weight: 600;
+    outline: none;
+    border: none;
+    background-color: $lavender-white;
+    color: $navy;
+    padding: 20px 35px;
+    display: inline-block;
+    width: auto;
+    cursor: pointer;
+    &:hover {
+        background-color: $lavender-white-dark;
+    }
+}
+
+input,
+textarea {
+    background-color: $navy;
+    color: $white;
+    outline: none;
+    border: 1px solid $lavender-white;
+    padding: 10px 20px;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+input {
+    height: calc( #{$yHalf} + 20px + 2px);
+}
+
+textarea {
+    height: calc( 2*( #{$yHalf} + 20px + 2px));
+}
+
+.input-button {
+    height: calc( #{$yHalf} + 20px + 2px);
+    padding: 10px 20px;
+}
+
+::placeholder {
+    color: $lavender-white;
+}
+
+#modal-container {
+    position: fixed;
+    z-index: 5;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    #modal {
+        z-index: 6;
+        background-color: $light-navy;
+        width: calc(5.5 * #{$xUnit});
+        margin: auto;
+        box-sizing: border-box;
+        padding: $yHalf $xHalf;
+        padding-bottom: $yUnit;
+        transition: opacity .2s;
+        #modal-header {
+            margin-top: $yThird;
+            @extend .section-header;
+            @include breakpoint('smonly') {
+                text-align: left;
+            }
+        }
+        #modal-description {
+            @include body2;
+            text-align: center;
+            @include breakpoint('smonly') {
+                text-align: left;
+            }
+        }
+        #modal-buttons {
+            @include breakpoint('smonly') {
+                justify-content: left;
+            }
+        }
+        &.gone {
+            opacity: 0;
+        }
+        @include breakpoint("mdonly") {
+            width: calc(8 * #{$xUnit});
+        }
+        @include breakpoint('smonly') {
+            width: calc(10 * #{$xUnit});
+            padding: $yHalf $xUnit;
+        }
+    }
+}
+
+#modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 4;
+    background-color: black;
+    transition: opacity 0.2s;
+    opacity: 0.75;
+    &.off {
+        opacity: 0;
+    }
+}
+
+button.outline {
+    background-color: transparent;
+    border: 1px solid $lavender-white;
+    color: $lavender-white;
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.03);
+    }
+}

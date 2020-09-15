@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{> head}}
+    <link href="../../hpc/css/login.css" rel="stylesheet">
+</head>
+
+<body>
+    {{!-- {{#if modal}}
+    {{> modal this.modalData}}
+    {{/if}} --}}
+
+    {{> nav}}
+
+    <div class="row">
+        <div id="content" class="col">
+
+            <div class="row">
+                <div class="four col major start">
+                    <div class="section-header">Log in</div>
+                    <div class="ySpacer"></div>
+                    <form>
+                        <input placeholder="username">
+                        <div class="ySpacer"></div>
+                        <input placeholder="password">
+                        <div class="ySpacer"></div>
+                        <button>Log in</button>
+                    </form>
+                    <div class="ySpacer"></div>
+                    <div class="tip">If you've forgotten your username or password, email 22gloriaz@students.harker.org</div>
+                </div>
+                <div class="two">
+                    <div class="col max" id="vertical-rule"></div>
+                </div>
+                <div class="four col top major start">
+                    <div class="section-header">Register</div>
+                    <div class="ySpacer"></div>
+                    <div class="tip">If you are a Harker student, please use your Harker username/ email.</div>
+                    <div class="ySpacer"></div>
+                    <form>
+                        <input placeholder="username">
+                        <div class="ySpacer"></div>
+                        <input placeholder="password">
+                        <div class="ySpacer"></div>
+                        <input placeholder="email">
+                        <div class="ySpacer"></div>
+                        <button>Register</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    {{> footer}}
+
+</body>
+
+</html>

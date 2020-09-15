@@ -1,0 +1,16 @@
+@import "util/main";
+@import "util/flex";
+#club-description {
+    @include body1;
+}
+
+.tip {
+    @include body2;
+    color: $lavender-white;
+}
+
+#vertical-rule {
+    border-left: 1px solid $lavender-white-dark;
+    width: 0px;
+    height: 100%;
+}

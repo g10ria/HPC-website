@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{> head}}
+    <link href="../../hpc/css/home.css" rel="stylesheet">
+</head>
+
+<body>
+    {{#if modal}}
+    {{> modal this.modalData}}
+    {{/if}}
+
+    {{> nav}}
+
+    <div class="row">
+        <div id="content" class="col">
+
+            <div class="row top" id="club-description">
+                <div class="col four left major">
+                    <div class="row top">
+                        Harker Programming Club's goal is to educate and inspire students on the topics of contest programming and real-world applications of programming. We host two yearly algorithmic programming contests with invited keynote speakers, and hold lectures and workshops throughout the year.                        
+                    </div>
+                    <div class="row">
+                        <a href="./programming/about"><button>Read more about us</button></a>
+                    </div>
+                </div>
+                <div class="col two left three-md">
+                    <img src="../img/help.JPG">
+                </div>
+                <div class="col two left three-md">
+                    <img src="../img/speak.jpg">
+                </div>
+                <div class="col two three-md">
+                    <img src="../img/work.JPG">
+                </div>
+            </div>
+
+            {{!-- <div class="ySpacer"></div>
+            <div class="ySpacer"></div>
+
+            <div class="row mid" id="mailing-list">
+                <div class="col five seven-md"><input type="text"
+                        placeholder="Join our mailing list for club updates, resources, and more"></input></div>
+                <div class="col one three-md"><button class="input-button">Submit</button></div>
+            </div>
+
+            <div class="ySpacer"></div>
+            <div class="ySpacer"></div> --}}
+            <div class="ySpacer"></div>
+            <div class="ySpacer"></div>
+
+            <div class="col" id="upcoming-events">
+                <div class="row top">
+                    <div class="col mid">
+                        <i data-feather="calendar" style="opacity: 0"></i>
+                    </div>
+                    <div class="col section-header">Upcoming Events</div>
+                    <div class="col mid">
+                        <i data-feather="calendar" style="opacity: 0"></i>
+                    </div>
+                </div>
+                <div class="ySpacer"></div>
+
+                {{#each upcomingEvents}}
+                <div class="col">
+
+                    <div class="row event-header">
+                        <div class="section-subheader">{{name}}</div>
+                        <div class="section-subheader">{{date}}</div>
+                    </div>
+
+                    {{#if image}}
+                    <div class="row top">
+                        <div class="col event-description six left major">
+                            {{description}}
+                        </div>
+                        <div class="col four major">
+                            <img src="{{image}}">
+                        </div>
+                    </div>
+                    {{else}}
+                    <div class="row top">
+                        <div class="col event-description">
+                            {{description}}
+                        </div>
+                    </div>
+                    {{/if}}
+
+                    <div class="row mid">
+                        {{#each buttons}}
+                        <div class="col left semimajor">
+                            <a href="{{link}}" target="{{target}}">
+                                <button class={{class}}>{{text}}</button>
+                            </a>
+                        </div>
+                        {{/each}}
+                    </div>
+
+                </div>
+
+                {{#unless last}}
+                <div class="ySpacer"></div>
+                <div class="ySpacer"></div>
+                <div class="ySpacer"></div>
+                {{/unless}}
+
+                {{/each}}
+
+                {{#if noUpcomingEvents}}
+                    <div class="row mid">There are no upcoming events.</div>
+                {{/if}}
+            </div>
+
+            <div class="ySpacer"></div>
+            <div class="ySpacer"></div>
+            <div class="ySpacer"></div>
+            <div class="ySpacer"></div>
+
+            <div class="col" id="resources">
+                <div class="row top mid">
+                    <div class="col section-header">Resources</div>
+                </div>
+                <div class="ySpacer"></div>
+                <div class="row mid">Coming Soon!</div>
+            </div>
+
+        </div>
+    </div>
+
+    {{> footer}}
+
+</body>
+
+</html>

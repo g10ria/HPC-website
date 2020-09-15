@@ -1,0 +1,10 @@
+@import "util/main";
+@import "util/flex";
+#num {
+    font-size: 3rem;
+    font-weight: 900;
+}
+
+#text {
+    @include body1;
+}

@@ -1,0 +1,31 @@
+@import "util/main";
+@import "util/flex";
+#club-description,
+#club-contact-description {
+    @include body1;
+}
+
+.officers-container {
+    justify-content: center;
+    .officer-container {
+        padding: $yHalf;
+        box-sizing: border-box;
+        margin: $yHalf calc(0.5 * #{$xThird});
+        border: 1px solid $lavender-white-dark;
+        .officer-name {
+            @include body1;
+            margin-top: $yThird;
+            text-align: center;
+        }
+        .officer-role {
+            @include body2;
+            text-align: center;
+        }
+        .officer-link:hover {
+            opacity: 0.8;
+        }
+        .officer-image {
+            background-color: white;
+        }
+    }
+}

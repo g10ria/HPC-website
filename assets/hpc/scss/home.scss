@@ -1,0 +1,27 @@
+@import "util/main";
+@import "util/flex";
+#club-description {
+    @include body1;
+}
+
+#upcoming-events {
+    @include body1;
+    background-color: $light-navy;
+    box-sizing: border-box;
+    padding: $yHalf $xUnit;
+    padding-bottom: calc(3 * #{$yHalf});
+    .event-header {
+        margin-bottom: $yThird;
+    }
+    .event-description {
+        color: $lavender-white;
+    }
+}
+
+#resources {
+    @include body1;
+    background-color: $light-navy;
+    box-sizing: border-box;
+    padding: $yHalf $xUnit;
+    padding-bottom: $yUnit;
+}

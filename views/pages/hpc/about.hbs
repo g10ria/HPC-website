@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{> head}}
+    <link href="{{path}}/hpc/css/about.css" rel="stylesheet">
+</head>
+
+<body>
+    {{!-- {{#if modal}}
+    {{> modal this.modalData}}
+    {{/if}} --}}
+
+    {{> nav}}
+
+    <div class="row">
+        <div id="content" class="col">
+
+            <div class="row top" id="club-description">
+                Harker Programming Club's goal is to educate and inspire students on the topics of contest programming and real-world
+                applications of programming. We host two yearly algorithmic programming contests with invited keynote speakers: Girls Programming league (GPL) aims to encourage girls to learn and explore their interests in the field of CS, and Harker Programming Invitational (HPI) aims to provide a fun and engaging environment for coders to further enhance their knowledge in skill. We also hold lectures and workshops throughout the year on a variety of CS-related topics.
+            </div>
+
+            {{!-- <div class="ySpacer"></div>
+            <div class="ySpacer"></div>
+
+            <div class="col" id="club-contact">
+                <div class="section-header">Contact Us/ Contribute</div>
+                <div class="ySpacer"></div>
+                <div class="row">
+                    <div class="col three major" id="club-contact-description">
+                        If you have any questions, comments, or concerns, feel free to contact us with the form on the right. In addition, if you would like contribute (help write problems for a contest, give a guest lecture, partner with the club, etc.), please get in touch as well!</div>
+                    <div class="col six major">
+                        <form action="/programming/contact" method="POST">
+                            <input type="text" placeholder="Name" name="name"/>
+                            <div class="ySpacer"></div>
+                            <input type="text" placeholder="Email" name="email"/>
+                            <div class="ySpacer"></div>
+                            <textarea placeholder="Message" name="message"></textarea>
+                            <div class="ySpacer"></div>
+                            <button type="submit">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div> --}}
+
+            {{!-- <div class="ySpacer"></div>
+            <div class="ySpacer"></div> --}}
+            <div class="ySpacer"></div>
+            <div class="ySpacer"></div>
+
+            <div class="col mid">
+                <div class="section-header row mid">Meet the Officers</div>
+            </div>
+
+            <div class="ySpacer"></div>
+            <div class="ySpacer"></div>
+
+            <div class="row wrap officers-container">
+
+                {{#each members}}
+
+                <div class="officer-container col two nowrap three-md semimajor">
+                    <div class="row max mid">
+
+                        {{#if url}}
+                            <a href="{{url}}" target="_blank" class="officer-link">
+                        {{/if}}
+
+                        <img class="officer-picture" src="{{image}}">
+
+                        {{#if url}}
+                            </a>
+                        {{/if}}
+                        
+                    </div>
+                    <div class="officer-name row max mid">{{name}}</div>
+                    <div class="officer-role row max mid">{{role}}</div>
+                </div>
+                {{/each}}
+
+            </div>
+
+        </div>
+    </div>
+
+    {{> footer}}
+
+</body>
+
+</html>
